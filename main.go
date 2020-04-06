@@ -3,6 +3,6 @@ package main
 import "go_datatypes/organization"
 
 func main() {
-	p := organization.Person{FirstName: "Darth", LastName: "Vader"}
+	p := organization.NewPerson("Darth","Vader")
 	println(p.ID())
 }

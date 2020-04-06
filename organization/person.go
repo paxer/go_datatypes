@@ -5,8 +5,12 @@ type Identifiable interface {
 }
 
 type Person struct {
-	FirstName string
-	LastName  string
+	firstName string
+	lastName  string
+}
+
+func NewPerson(firstName, lastName string) Person {
+	return Person{firstName: firstName, lastName: lastName}
 }
 
 func (p Person) ID() string {
