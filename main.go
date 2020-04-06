@@ -1,5 +1,8 @@
 package main
 
+import "go_datatypes/organization"
+
 func main() {
-	println("Hello World")
+	p := organization.Person{FirstName: "Darth", LastName: "Vader"}
+	println(p.ID())
 }
