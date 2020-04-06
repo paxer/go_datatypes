@@ -6,7 +6,11 @@ import (
 	"strings"
 )
 
-type TwitterHandler = string
+type TwitterHandler string
+
+func (th TwitterHandler) RedirectUrl() string {
+	return ""
+}
 
 type Identifiable interface {
 	ID() string
@@ -33,7 +37,7 @@ func (p *Person) ID() string {
 func (p *Person) SetTwitterHandler(handler TwitterHandler) error {
 	if len(handler) == 0 {
 		p.twitterHandler = handler
-	} else if !strings.HasPrefix(handler, "@") {
+	} else if !strings.HasPrefix(string(handler), "@") {
 		return errors.New("twitter handler must start with an @ symbol")
 	}
 
@@ -41,6 +45,6 @@ func (p *Person) SetTwitterHandler(handler TwitterHandler) error {
 	return nil
 }
 
-func (p *Person) TwitterHandler() string {
+func (p *Person) TwitterHandler() TwitterHandler {
 	return p.twitterHandler
 }
