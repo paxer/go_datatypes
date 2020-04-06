@@ -9,7 +9,8 @@ import (
 type TwitterHandler string
 
 func (th TwitterHandler) RedirectUrl() string {
-	return ""
+	cleanHandler := strings.TrimPrefix(string(th), "@")
+	return fmt.Sprintf("https://www.twitter.com/%s", cleanHandler)
 }
 
 type Identifiable interface {

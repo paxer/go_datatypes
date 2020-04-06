@@ -14,5 +14,6 @@ func main() {
 		fmt.Printf("An error occured setting twitter hander: %s", err.Error())
 	}
 	println(p.TwitterHandler())
+	println(p.TwitterHandler().RedirectUrl())
 
 }
